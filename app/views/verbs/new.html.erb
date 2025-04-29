@@ -1,0 +1,48 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="mt-5 mb-3 text-center">
+    <h2>Add Verbs</h2>
+  </div>
+
+  <% if @verb.errors.any? %>
+    <div class='alert alert-danger' role='alert'>
+      <% @verb.errors.each do |error| %>
+        <%= error.message %>
+      <% end %>
+    </div>
+  <% elsif defined?(success) %>
+    <div class='alert alert-success' role='alert'>
+      Success
+    </div>
+  <% end %>
+
+  <div class='card'>
+    <div class='card-body'>
+      <%# <h5 class='card-title'><%= "Add New Verb" %1></h5> %>
+
+      <% conjugation = random_conjugation %>
+      <%= form_with model: @verb, method: :post, data: { turbo: false } do |f| %>
+        <div class='mb-3'>
+          <%= f.label :present_active %>
+          <%= f.text_field :present_active, autocomplete: 'off', class: 'form-control' %>
+        </div>
+        <div class='mb-3'>
+          <%= f.label :present_infinitive %>
+          <%= f.text_field :present_infinitive, autocomplete: 'off', class: 'form-control' %>
+        </div>
+        <div class='mb-3'>
+          <%= f.label :perfect_active %>
+          <%= f.text_field :perfect_active, autocomplete: 'off', class: 'form-control' %>
+        </div>
+        <div class='mb-3'>
+          <%= f.label :supine %>
+          <%= f.text_field :supine, autocomplete: 'off', class: 'form-control' %>
+        </div>
+        <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='mt-5'>
+    <%= link_to 'Back', verbs_path, class: 'btn btn-primary' %>
+  </div>
+</div>

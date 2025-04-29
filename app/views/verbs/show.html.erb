@@ -1,0 +1,48 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="mt-5 mb-3 text-center">
+    <h2>Conjugate Verbs</h2>
+  </div>
+
+  <% if defined?(error) %>
+    <div class='alert alert-danger' role='alert'>
+      The right answer was "<%= @form.text %>"
+    </div>
+  <% elsif defined?(success) %>
+    <div class='alert alert-success' role='alert'>
+      That's right!
+    </div>
+  <% end %>
+
+  <div class='card'>
+    <div class='card-body'>
+      <h5 class='card-title'><%= "#{@verb.present_active}, #{@verb.present_infinitive}, #{@verb.perfect_active}, #{@verb.supine}" %></h5>
+
+      <% conjugation = random_conjugation %>
+      <% url = check_conjugation_verb_path(id: @verb.id, conjugation: conjugation) %>
+      <%= form_with url: url, method: :post, data: { turbo: false } do |f| %>
+        <div class='mb-3'>
+          <%= f.label :input, conjugation_as_text(conjugation), class: 'form-label' %>
+          <%= f.text_field :input, autocomplete: 'off', class: 'form-control' %>
+        </div>
+        <%= f.submit 'Confirm', id: 'submit-btn', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='mt-5'>
+    <%= link_to 'Back', verbs_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputField = document.getElementById("input");
+    const submitButton = document.getElementById("submit-btn");
+
+    submitButton.disabled = inputField.value.trim() === "";
+
+    inputField.addEventListener("input", function () {
+      submitButton.disabled = inputField.value.trim() === "";
+    });
+  });
+</script>
