@@ -1,7 +1,69 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# First conjugation.
 
-one:
-  infinitive: MyString
+amare:
+  present_infinitive: amãre
+  present_active: amõ
+  perfect_active: amãvĩ
+  supine: amãtum
 
-two:
-  infinitive: MyString
+imperare:
+  present_infinitive: imperãre
+  present_active: imperõ
+  perfect_active: imperãvĩ
+  supine: imperãtum
+
+# Second conjugation.
+
+debere:
+  present_infinitive: dẽbẽre
+  present_active: dẽbeõ
+  perfect_active: dẽbuĩ
+  supine: dẽbitum
+
+docere:
+  present_infinitive: docẽre
+  present_active: doceõ
+  perfect_active: docuĩ
+  supine: doctum
+
+# Third conjugation.
+
+carpere:
+  present_infinitive: carpere
+  present_active: carpõ
+  perfect_active: carpsĩ
+  supine: carptum
+
+cedere:
+  present_infinitive: cẽdere
+  present_active: cẽdõ
+  perfect_active: cessĩ
+  supine: cessum
+
+# Third conjugation -iõ verbs.
+
+conspicere:
+  present_infinitive: cõnspicere
+  present_active: cõnspiciõ
+  perfect_active: cõnspexĩ
+  supine: cõnspectum
+
+capere:
+  present_infinitive: capere
+  present_active: capiõ
+  perfect_active: cẽpĩ
+  supine: captum
+
+# Fourth conjugation.
+
+audire:
+  present_infinitive: audĩre
+  present_active: audiõ
+  perfect_active: audĩvĩ
+  supine: audĩtum
+
+custodire:
+  present_infinitive: custõdĩre
+  present_active: custõdiõ
+  perfect_active: custõdĩvĩ
+  supine: custõdĩtum
