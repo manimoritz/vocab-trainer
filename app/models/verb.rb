@@ -29,12 +29,30 @@ class Verb < ApplicationRecord
 
   def stem
     {
-      present: present_infinitive[..-4],
-      future: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3],
-      imperfect: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3],
-      perfect: perfect_active[..-2],
-      future_perfect: perfect_active[..-2],
-      pluperfect: perfect_active[..-2]
+      present: {
+        active: present_infinitive[..-4],
+        passive: present_infinitive[..-4]
+      },
+      future: {
+        active: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3],
+        passive: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3]
+      },
+      imperfect: {
+        active: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3],
+        passive: [1, 3].include?(conjugation) ? present_active[..-2] : present_active[..-3]
+      },
+      perfect: {
+        active: perfect_active[..-2],
+        passive: supine
+      },
+      future_perfect: {
+        active: perfect_active[..-2],
+        passive: supine
+      },
+      pluperfect: {
+        active: perfect_active[..-2],
+        passive: supine
+      }
     }
   end
 end

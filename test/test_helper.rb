@@ -13,18 +13,37 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
 
     def assert_conjugation_list(verb, forms)
-      assert_conjugation_list_for(verb, 'present', 'active', 'indicative',
-                                  forms[0])
-      assert_conjugation_list_for(verb, 'future', 'active', 'indicative',
-                                  forms[1])
-      assert_conjugation_list_for(verb, 'imperfect', 'active', 'indicative',
-                                  forms[2])
-      assert_conjugation_list_for(verb, 'perfect', 'active', 'indicative',
-                                  forms[3])
-      assert_conjugation_list_for(verb, 'future_perfect', 'active', 'indicative',
-                                  forms[4])
-      assert_conjugation_list_for(verb, 'pluperfect', 'active', 'indicative',
-                                  forms[5])
+      combinations = [
+        %w[present active indicative],
+        %w[future active indicative],
+        %w[imperfect active indicative],
+        %w[perfect active indicative],
+        %w[future_perfect active indicative],
+        %w[pluperfect active indicative],
+
+        %w[present passive indicative],
+        %w[future passive indicative],
+        %w[imperfect passive indicative],
+        %w[perfect passive indicative],
+        %w[future_perfect passive indicative],
+        %w[pluperfect passive indicative],
+
+        %w[present active subjunctive],
+        %w[imperfect active subjunctive],
+        %w[perfect active subjunctive],
+        %w[pluperfect active subjunctive],
+
+        %w[present passive subjunctive],
+        %w[imperfect passive subjunctive],
+        %w[perfect passive subjunctive],
+        %w[pluperfect passive subjunctive]
+      ]
+
+      combinations.each_with_index do |(tense, voice, mood), i|
+        next unless forms[i]
+
+        assert_conjugation_list_for(verb, tense, voice, mood, forms[i])
+      end
     end
 
     def assert_conjugation_list_for(verb, tense, voice, mood, forms)

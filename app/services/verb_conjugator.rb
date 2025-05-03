@@ -13,7 +13,7 @@ class VerbConjugator
 
       endings.each_with_index.map do |ending, index|
         {
-          text: @stem[tense] + ending,
+          text: @stem[tense][voice] + ending,
           person: PERSONS[index % 3], # Cycles through first, second, third person
           number: NUMBERS[(index / 3) % 3], # Matches corresponding singular/plural number
           tense: tense.to_s,

@@ -5,12 +5,36 @@ class VerbTest < ActiveSupport::TestCase
     amare = verbs(:amare)
     assert_conjugation_list(
       amare,
-      [%w[amō amās amat amāmus amātis amant],
-       %w[amābō amābis amābit amābimus amābitis amābunt],
-       %w[amābam amābās amābat amābāmus amābātis amābant],
-       %w[amāvī amāvistī amāvit amāvimus amāvistis amāvērunt],
-       %w[amāverō amāveris amāverit amāverimus amāveritis amāverint],
-       %w[amāveram amāverās amāverat amāverāmus amāverātis amāverant]]
+      [
+        # active indicative
+        %w[amō amās amat amāmus amātis amant],
+        %w[amābō amābis amābit amābimus amābitis amābunt],
+        %w[amābam amābās amābat amābāmus amābātis amābant],
+        %w[amāvī amāvistī amāvit amāvimus amāvistis amāvērunt],
+        %w[amāverō amāveris amāverit amāverimus amāveritis amāverint],
+        %w[amāveram amāverās amāverat amāverāmus amāverātis amāverant],
+        # passive indicative
+        %w[amor amāris amātur amāmur amāminī amantur],
+        %w[amābor amāberis amābitur amābimur amābiminī amābuntur],
+        %w[amābar amābāris amābātur amābāmur amābāminī amābantur],
+        ['amātum sum', 'amātum es', 'amātum est', 'amātum sumus', 'amātum estis', 'amātum sunt'],
+        ['amātum erō', 'amātum eris', 'amātum erit', 'amātum erimus', 'amātum eritis', 'amātum erunt'],
+        ['amātum eram', 'amātum erās', 'amātum erat', 'amātum erāmus', 'amātum erātis', 'amātum erant'],
+        # active subjunctive
+        %w[amem amēs amet amēmus amētis ament],
+
+        %w[amārem amārēs amāret amārēmus amārētis amārent],
+        %w[amāverim amāverīs amāverit amāverīmus amāverītis amāverint],
+
+        %w[amāvissem amāvissēs amāvisset amāvissēmus amāvissētis amāvissent],
+        # passive subjunctive
+        %w[amer amēris amētur amēmur amēminī amentur],
+
+        %w[amārer amārēris amārētur amārēmur amārēminī amārentur],
+        ['amātum sim', 'amātum sīs', 'amātum sit', 'amātum sīmus', 'amātum sītis', 'amātum sint'],
+
+        ['amātum essem', 'amātum essēs', 'amātum esset', 'amātum essēmus', 'amātum essētis', 'amātum essent']
+      ]
     )
 
     imperare = verbs(:imperare)

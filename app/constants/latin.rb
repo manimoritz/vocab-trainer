@@ -32,7 +32,7 @@ module Latin
           4 => %w[iam iēs iet iēmus iētis ient]
         },
         passive: {
-          1 => %w[bor beris bitur bimur biminī buntur],
+          1 => %w[ābor āberis ābitur ābimur ābiminī ābuntur],
           2 => %w[bor beris bitur bimur biminī buntur],
           3 => %w[ar ēris ētur ēmur ēminī entur],
           3.5 => %w[ar ēris ētur ēmur ēminī entur],
@@ -47,7 +47,13 @@ module Latin
           3.5 => %w[iēbam iēbās iēbat iēbāmus iēbātis iēbant],
           4 => %w[iēbam iēbās iēbat iēbāmus iēbātis iēbant]
         },
-        passive: Hash.new(%w[bar bāris bātur bāmur bāminī bantur])
+        passive: {
+          1 => %w[ābar ābāris ābātur ābāmur ābāminī ābantur],
+          2 => %w[ēbar ēbāris ēbātur ēbāmur ēbāminī ēbantur],
+          3 => %w[ēbar ēbāris ēbātur ēbāmur ēbāminī ēbantur],
+          3.5 => %w[iēbar iēbāris iēbātur iēbāmur iēbāminī iēbantur],
+          4 => %w[iēbar iēbāris iēbātur iēbāmur iēbāminī iēbantur]
+        }
       },
       perfect: {
         active: Hash.new(%w[ī istī it imus istis ērunt]),
@@ -68,15 +74,27 @@ module Latin
         passive: Hash.new(%w[ar āris ātur āmur āminī antur]).merge({ 1 => %w[er ēris ētur ēmur ēminī entur] })
       },
       imperfect: {
-        active: Hash.new(%w[em ēs et ēmus ētis ent]),
-        passive: Hash.new(%w[er ēris ētur ēmur ēminī entur])
+        active: {
+          1 => %w[ārem ārēs āret ārēmus ārētis ārent],
+          2 => %w[em ēs et ēmus ētis ent],
+          3 => %w[em ēs et ēmus ētis ent],
+          3.5 => %w[em ēs et ēmus ētis ent],
+          4 => %w[em ēs et ēmus ētis ent]
+        },
+        passive: {
+          1 => %w[ārer ārēris ārētur ārēmur ārēminī ārentur],
+          2 => %w[er ēris ētur ēmur ēminī entur],
+          3 => %w[er ēris ētur ēmur ēminī entur],
+          3.5 => %w[er ēris ētur ēmur ēminī entur],
+          4 => %w[er ēris ētur ēmur ēminī entur]
+        },
       },
       perfect: {
         active: Hash.new(%w[erim erīs erit erīmus erītis erint]),
         passive: Hash.new([' sim', ' sīs', ' sit', ' sīmus', ' sītis', ' sint'])
       },
       pluperfect: {
-        active: Hash.new(%w[ssem ssēs sset ssēmus ssētis ssent]),
+        active: Hash.new(%w[issem issēs isset issēmus issētis issent]),
         passive: Hash.new([' essem', ' essēs', ' esset', ' essēmus', ' essētis', ' essent'])
       }
     }
