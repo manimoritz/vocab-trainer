@@ -18,11 +18,11 @@ class Verb < ApplicationRecord
   private
 
   def conjugation
-    return 1 if present_infinitive[-3] == 'ã'
-    return 2 if present_infinitive[-3] == 'ẽ'
-    return 3.5 if present_infinitive[-3] == 'e' && present_active[-2..] == 'iõ'
+    return 1 if present_infinitive[-3] == 'ā'
+    return 2 if present_infinitive[-3] == 'ē'
+    return 3.5 if present_infinitive[-3] == 'e' && present_active[-2..] == 'iō'
     return 3 if present_infinitive[-3] == 'e'
-    return 4 if present_infinitive[-3] == 'ĩ'
+    return 4 if present_infinitive[-3] == 'ī'
 
     raise "'#{present_infinitive}' does not fit any conjugation rule."
   end

@@ -1,5 +1,5 @@
 <%# laudare_1_sg_pre_act_ind: %>
-<%#   text: laudõ %>
+<%#   text: laudō %>
 <%#   person: first %>
 <%#   number: singular %>
 <%#   tense: present %>
@@ -8,7 +8,7 @@
 <%#   verb_id: 1 %>
 
 <%# pugnare_1_sg_pre_act_ind: %>
-<%#   text: pugnõ %>
+<%#   text: pugnō %>
 <%#   person: first %>
 <%#   number: singular %>
 <%#   tense: present %>

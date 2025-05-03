@@ -1,69 +1,69 @@
 # First conjugation.
 
 amare:
-  present_infinitive: amãre
-  present_active: amõ
-  perfect_active: amãvĩ
-  supine: amãtum
+  present_infinitive: amāre
+  present_active: amō
+  perfect_active: amāvī
+  supine: amātum
 
 imperare:
-  present_infinitive: imperãre
-  present_active: imperõ
-  perfect_active: imperãvĩ
-  supine: imperãtum
+  present_infinitive: imperāre
+  present_active: imperō
+  perfect_active: imperāvī
+  supine: imperātum
 
 # Second conjugation.
 
 debere:
-  present_infinitive: dẽbẽre
-  present_active: dẽbeõ
-  perfect_active: dẽbuĩ
-  supine: dẽbitum
+  present_infinitive: dēbēre
+  present_active: dēbeō
+  perfect_active: dēbuī
+  supine: dēbitum
 
 docere:
-  present_infinitive: docẽre
-  present_active: doceõ
-  perfect_active: docuĩ
+  present_infinitive: docēre
+  present_active: doceō
+  perfect_active: docuī
   supine: doctum
 
 # Third conjugation.
 
 carpere:
   present_infinitive: carpere
-  present_active: carpõ
-  perfect_active: carpsĩ
+  present_active: carpō
+  perfect_active: carpsī
   supine: carptum
 
 cedere:
-  present_infinitive: cẽdere
-  present_active: cẽdõ
-  perfect_active: cessĩ
+  present_infinitive: cēdere
+  present_active: cēdō
+  perfect_active: cessī
   supine: cessum
 
-# Third conjugation -iõ verbs.
+# Third conjugation -iō verbs.
 
 conspicere:
-  present_infinitive: cõnspicere
-  present_active: cõnspiciõ
-  perfect_active: cõnspexĩ
-  supine: cõnspectum
+  present_infinitive: cōnspicere
+  present_active: cōnspiciō
+  perfect_active: cōnspexī
+  supine: cōnspectum
 
 capere:
   present_infinitive: capere
-  present_active: capiõ
-  perfect_active: cẽpĩ
+  present_active: capiō
+  perfect_active: cēpī
   supine: captum
 
 # Fourth conjugation.
 
 audire:
-  present_infinitive: audĩre
-  present_active: audiõ
-  perfect_active: audĩvĩ
-  supine: audĩtum
+  present_infinitive: audīre
+  present_active: audiō
+  perfect_active: audīvī
+  supine: audītum
 
 custodire:
-  present_infinitive: custõdĩre
-  present_active: custõdiõ
-  perfect_active: custõdĩvĩ
-  supine: custõdĩtum
+  present_infinitive: custōdīre
+  present_active: custōdiō
+  perfect_active: custōdīvī
+  supine: custōdītum
