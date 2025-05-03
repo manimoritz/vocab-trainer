@@ -27,40 +27,97 @@ class VerbTest < ActiveSupport::TestCase
 
   test 'second conjugation list' do
     debere = verbs(:debere)
-    assert_conjugation_list_for(debere, 'present', 'active', 'indicative',
-                                %w[dēbeō dēbēs dēbet dēbēmus dēbētis dēbent])
+    assert_conjugation_list(
+      debere,
+      [%w[dēbeō dēbēs dēbet dēbēmus dēbētis dēbent],
+       %w[dēbēbō dēbēbis dēbēbit dēbēbimus dēbēbitis dēbēbunt],
+       %w[dēbēbam dēbēbās dēbēbat dēbēbāmus dēbēbātis dēbēbant],
+       %w[dēbuī dēbuistī dēbuit dēbuimus dēbuistis dēbuērunt],
+       %w[dēbuerō dēbueris dēbuerit dēbuerimus dēbueritis dēbuerint],
+       %w[dēbueram dēbuerās dēbuerat dēbuerāmus dēbuerātis dēbuerant]]
+    )
+
     docere = verbs(:docere)
-    assert_conjugation_list_for(docere, 'present', 'active', 'indicative',
-                                %w[doceō docēs docet docēmus docētis docent])
+    assert_conjugation_list(
+      docere,
+      [%w[doceō docēs docet docēmus docētis docent],
+       %w[docēbō docēbis docēbit docēbimus docēbitis docēbunt],
+       %w[docēbam docēbās docēbat docēbāmus docēbātis docēbant],
+       %w[docuī docuistī docuit docuimus docuistis docuērunt],
+       %w[docuerō docueris docuerit docuerimus docueritis docuerint],
+       %w[docueram docuerās docuerat docuerāmus docuerātis docuerant]]
+    )
   end
 
   test 'third conjugation list' do
     carpere = verbs(:carpere)
-    assert_conjugation_list_for(carpere, 'present', 'active', 'indicative',
-                                %w[carpō carpis carpit carpimus carpitis carpunt])
+    assert_conjugation_list(
+      carpere,
+      [%w[carpō carpis carpit carpimus carpitis carpunt],
+       %w[carpam carpēs carpet carpēmus carpētis carpent],
+       %w[carpēbam carpēbās carpēbat carpēbāmus carpēbātis carpēbant],
+       %w[carpsī carpsistī carpsit carpsimus carpsistis carpsērunt],
+       %w[carpserō carpseris carpserit carpserimus carpseritis carpserint],
+       %w[carpseram carpserās carpserat carpserāmus carpserātis carpserant]]
+    )
 
     cedere = verbs(:cedere)
-    assert_conjugation_list_for(cedere, 'present', 'active', 'indicative',
-                                %w[cēdō cēdis cēdit cēdimus cēditis cēdunt])
+    assert_conjugation_list(
+      cedere,
+      [%w[cēdō cēdis cēdit cēdimus cēditis cēdunt],
+       %w[cēdam cēdēs cēdet cēdēmus cēdētis cēdent],
+       %w[cēdēbam cēdēbās cēdēbat cēdēbāmus cēdēbātis cēdēbant],
+       %w[cessī cessistī cessit cessimus cessistis cessērunt],
+       %w[cesserō cesseris cesserit cesserimus cesseritis cesserint],
+       %w[cesseram cesserās cesserat cesserāmus cesserātis cesserant]]
+    )
   end
 
   test 'third conjugation io variant list' do
     conspicere = verbs(:conspicere)
-    assert_conjugation_list_for(conspicere, 'present', 'active', 'indicative',
-                                %w[cōnspiciō cōnspicis cōnspicit cōnspicimus cōnspicitis cōnspiciunt])
+    assert_conjugation_list(
+      conspicere,
+      [%w[cōnspiciō cōnspicis cōnspicit cōnspicimus cōnspicitis cōnspiciunt],
+       %w[cōnspiciam cōnspiciēs cōnspiciet cōnspiciēmus cōnspiciētis cōnspicient],
+       %w[cōnspiciēbam cōnspiciēbās cōnspiciēbat cōnspiciēbāmus cōnspiciēbātis cōnspiciēbant],
+       %w[cōnspexī cōnspexistī cōnspexit cōnspeximus cōnspexistis cōnspexērunt],
+       %w[cōnspexerō cōnspexeris cōnspexerit cōnspexerimus cōnspexeritis cōnspexerint],
+       %w[cōnspexeram cōnspexerās cōnspexerat cōnspexerāmus cōnspexerātis cōnspexerant]]
+    )
 
     capere = verbs(:capere)
-    assert_conjugation_list_for(capere, 'present', 'active', 'indicative',
-                                %w[capiō capis capit capimus capitis capiunt])
+    assert_conjugation_list(
+      capere,
+      [%w[capiō capis capit capimus capitis capiunt],
+       %w[capiam capiēs capiet capiēmus capiētis capient],
+       %w[capiēbam capiēbās capiēbat capiēbāmus capiēbātis capiēbant],
+       %w[cēpī cēpistī cēpit cēpimus cēpistis cēpērunt],
+       %w[cēperō cēperis cēperit cēperimus cēperitis cēperint],
+       %w[cēperam cēperās cēperat cēperāmus cēperātis cēperant]]
+    )
   end
 
   test 'fourth conjugation list' do
     audire = verbs(:audire)
-    assert_conjugation_list_for(audire, 'present', 'active', 'indicative',
-                                %w[audiō audīs audit audīmus audītis audiunt])
+    assert_conjugation_list(
+      audire,
+      [%w[audiō audīs audit audīmus audītis audiunt],
+       %w[audiam audiēs audiet audiēmus audiētis audient],
+       %w[audiēbam audiēbās audiēbat audiēbāmus audiēbātis audiēbant],
+       %w[audīvī audīvistī audīvit audīvimus audīvistis audīvērunt],
+       %w[audīverō audīveris audīverit audīverimus audīveritis audīverint],
+       %w[audīveram audīverās audīverat audīverāmus audīverātis audīverant]]
+    )
 
     custodire = verbs(:custodire)
-    assert_conjugation_list_for(custodire, 'present', 'active', 'indicative',
-                                %w[custōdiō custōdīs custōdit custōdīmus custōdītis custōdiunt])
+    assert_conjugation_list(
+      custodire,
+      [%w[custōdiō custōdīs custōdit custōdīmus custōdītis custōdiunt],
+       %w[custōdiam custōdiēs custōdiet custōdiēmus custōdiētis custōdient],
+       %w[custōdiēbam custōdiēbās custōdiēbat custōdiēbāmus custōdiēbātis custōdiēbant],
+       %w[custōdīvī custōdīvistī custōdīvit custōdīvimus custōdīvistis custōdīvērunt],
+       %w[custōdīverō custōdīveris custōdīverit custōdīverimus custōdīveritis custōdīverint],
+       %w[custōdīveram custōdīverās custōdīverat custōdīverāmus custōdīverātis custōdīverant]]
+    )
   end
 end

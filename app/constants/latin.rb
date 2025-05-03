@@ -26,7 +26,7 @@ module Latin
       future: {
         active: {
           1 => %w[ābō ābis ābit ābimus ābitis ābunt],
-          2 => %w[bō bis bit bimus bitis bunt],
+          2 => %w[ēbō ēbis ēbit ēbimus ēbitis ēbunt],
           3 => %w[am ēs et ēmus ētis ent],
           3.5 => %w[iam iēs iet iēmus iētis ient],
           4 => %w[iam iēs iet iēmus iētis ient]
@@ -42,10 +42,10 @@ module Latin
       imperfect: {
         active: {
           1 => %w[ābam ābās ābat ābāmus ābātis ābant],
-          2 => %w[bam bās bat bāmus bātis bant],
-          3 => %w[bam bās bat bāmus bātis bant],
-          3.5 => %w[bam bās bat bāmus bātis bant],
-          4 => %w[bam bās bat bāmus bātis bant]
+          2 => %w[ēbam ēbās ēbat ēbāmus ēbātis ēbant],
+          3 => %w[ēbam ēbās ēbat ēbāmus ēbātis ēbant],
+          3.5 => %w[iēbam iēbās iēbat iēbāmus iēbātis iēbant],
+          4 => %w[iēbam iēbās iēbat iēbāmus iēbātis iēbant]
         },
         passive: Hash.new(%w[bar bāris bātur bāmur bāminī bantur])
       },
