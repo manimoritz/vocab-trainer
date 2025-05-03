@@ -3,71 +3,50 @@ require 'test_helper'
 class VerbTest < ActiveSupport::TestCase
   test 'first conjugation list' do
     amare = verbs(:amare)
-    assert_equal(%w[amõ amãs amat amãmus amãtis amant],
-                 amare.conjugation_list
-                      .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                      .map { |c| c[:text] })
+    assert_conjugation_list_for(amare, 'present', 'active', 'indicative',
+                                %w[amõ amãs amat amãmus amãtis amant])
 
     imperare = verbs(:imperare)
-    assert_equal(%w[imperõ imperãs imperat imperãmus imperãtis imperant],
-                 imperare.conjugation_list
-                         .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                         .map { |c| c[:text] })
+    assert_conjugation_list_for(imperare, 'present', 'active', 'indicative',
+                                %w[imperõ imperãs imperat imperãmus imperãtis imperant])
   end
 
   test 'second conjugation list' do
     debere = verbs(:debere)
-    assert_equal(%w[dẽbeõ dẽbẽs dẽbet dẽbẽmus dẽbẽtis dẽbent],
-                 debere.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                       .map { |c| c[:text] })
-
+    assert_conjugation_list_for(debere, 'present', 'active', 'indicative',
+                                %w[dẽbeõ dẽbẽs dẽbet dẽbẽmus dẽbẽtis dẽbent])
     docere = verbs(:docere)
-    assert_equal(%w[doceõ docẽs docet docẽmus docẽtis docent],
-                 docere.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                       .map { |c| c[:text] })
+    assert_conjugation_list_for(docere, 'present', 'active', 'indicative',
+                                %w[doceõ docẽs docet docẽmus docẽtis docent])
   end
 
   test 'third conjugation list' do
     carpere = verbs(:carpere)
-    assert_equal(%w[carpõ carpis carpit carpimus carpitis carpunt],
-                 carpere.conjugation_list
-                        .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                        .map { |c| c[:text] })
+    assert_conjugation_list_for(carpere, 'present', 'active', 'indicative',
+                                %w[carpõ carpis carpit carpimus carpitis carpunt])
 
     cedere = verbs(:cedere)
-    assert_equal(%w[cẽdõ cẽdis cẽdit cẽdimus cẽditis cẽdunt],
-                 cedere.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                       .map { |c| c[:text] })
+    assert_conjugation_list_for(cedere, 'present', 'active', 'indicative',
+                                %w[cẽdõ cẽdis cẽdit cẽdimus cẽditis cẽdunt])
   end
 
   test 'third conjugation io variant list' do
     conspicere = verbs(:conspicere)
-    assert_equal(%w[cõnspiciõ cõnspicis cõnspicit cõnspicimus cõnspicitis cõnspiciunt],
-                 conspicere.conjugation_list
-                           .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                           .map { |c| c[:text] })
+    assert_conjugation_list_for(conspicere, 'present', 'active', 'indicative',
+                                %w[cõnspiciõ cõnspicis cõnspicit cõnspicimus cõnspicitis cõnspiciunt])
 
     capere = verbs(:capere)
-    assert_equal(%w[capiõ capis capit capimus capitis capiunt],
-                 capere.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                       .map { |c| c[:text] })
+    assert_conjugation_list_for(capere, 'present', 'active', 'indicative',
+                                %w[capiõ capis capit capimus capitis capiunt])
   end
 
   test 'fourth conjugation list' do
     audire = verbs(:audire)
-    assert_equal(%w[audiõ audĩs audit audĩmus audĩtis audiunt],
-                 audire.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                       .map { |c| c[:text] })
+    assert_conjugation_list_for(audire, 'present', 'active', 'indicative',
+                                %w[audiõ audĩs audit audĩmus audĩtis audiunt])
 
     custodire = verbs(:custodire)
-    assert_equal(%w[custõdiõ custõdĩs custõdit custõdĩmus custõdĩtis custõdiunt],
-                 custodire.conjugation_list
-                          .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
-                          .map { |c| c[:text] })
+    assert_conjugation_list_for(custodire, 'present', 'active', 'indicative',
+                                %w[custõdiõ custõdĩs custõdit custõdĩmus custõdĩtis custõdiunt])
   end
 end
