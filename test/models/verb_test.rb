@@ -3,12 +3,26 @@ require 'test_helper'
 class VerbTest < ActiveSupport::TestCase
   test 'first conjugation list' do
     amare = verbs(:amare)
-    assert_conjugation_list_for(amare, 'present', 'active', 'indicative',
-                                %w[amõ amãs amat amãmus amãtis amant])
+    assert_conjugation_list(
+      amare,
+      [%w[amõ amãs amat amãmus amãtis amant],
+       %w[amãbõ amãbis amãbit amãbimus amãbitis amãbunt],
+       %w[amãbam amãbãs amãbat amãbãmus amãbãtis amãbant],
+       %w[amãvĩ amãvistĩ amãvit amãvimus amãvistis amãvẽrunt],
+       %w[amãverõ amãveris amãverit amãverimus amãveritis amãverint],
+       %w[amãveram amãverãs amãverat amãverãmus amãverãtis amãverant]]
+    )
 
     imperare = verbs(:imperare)
-    assert_conjugation_list_for(imperare, 'present', 'active', 'indicative',
-                                %w[imperõ imperãs imperat imperãmus imperãtis imperant])
+    assert_conjugation_list(
+      imperare,
+      [%w[imperõ imperãs imperat imperãmus imperãtis imperant],
+       %w[imperãbõ imperãbis imperãbit imperãbimus imperãbitis imperãbunt],
+       %w[imperãbam imperãbãs imperãbat imperãbãmus imperãbãtis imperãbant],
+       %w[imperãvĩ imperãvistĩ imperãvit imperãvimus imperãvistis imperãvẽrunt],
+       %w[imperãverõ imperãveris imperãverit imperãverimus imperãveritis imperãverint],
+       %w[imperãveram imperãverãs imperãverat imperãverãmus imperãverãtis imperãverant]]
+    )
   end
 
   test 'second conjugation list' do

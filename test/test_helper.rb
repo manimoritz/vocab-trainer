@@ -12,10 +12,25 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
 
+    def assert_conjugation_list(verb, forms)
+      assert_conjugation_list_for(verb, 'present', 'active', 'indicative',
+                                  forms[0])
+      assert_conjugation_list_for(verb, 'future', 'active', 'indicative',
+                                  forms[1])
+      assert_conjugation_list_for(verb, 'imperfect', 'active', 'indicative',
+                                  forms[2])
+      assert_conjugation_list_for(verb, 'perfect', 'active', 'indicative',
+                                  forms[3])
+      assert_conjugation_list_for(verb, 'future_perfect', 'active', 'indicative',
+                                  forms[4])
+      assert_conjugation_list_for(verb, 'pluperfect', 'active', 'indicative',
+                                  forms[5])
+    end
+
     def assert_conjugation_list_for(verb, tense, voice, mood, forms)
       assert_equal forms,
                    verb.conjugation_list
-                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == %w[present active indicative] }
+                       .filter { |c| [c[:tense], c[:voice], c[:mood]] == [tense, voice, mood] }
                        .map { |c| c[:text] },
                    "Wrong form for #{tense} #{voice} #{mood}"
     end
