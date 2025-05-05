@@ -33,10 +33,10 @@ module Latin
         },
         passive: {
           1 => %w[ābor āberis ābitur ābimur ābiminī ābuntur],
-          2 => %w[bor beris bitur bimur biminī buntur],
+          2 => %w[ēbor ēberis ēbitur ēbimur ēbiminī ēbuntur],
           3 => %w[ar ēris ētur ēmur ēminī entur],
-          3.5 => %w[ar ēris ētur ēmur ēminī entur],
-          4 => %w[ar ēris ētur ēmur ēminī entur]
+          3.5 => %w[iar iēris iētur iēmur iēminī ientur],
+          4 => %w[iar iēris iētur iēmur iēminī ientur]
         }
       },
       imperfect: {
@@ -70,24 +70,36 @@ module Latin
     },
     subjunctive: {
       present: {
-        active: Hash.new(%w[am ās at āmus ātis ant]).merge({ 1 => %w[em ēs et ēmus ētis ent] }),
-        passive: Hash.new(%w[ar āris ātur āmur āminī antur]).merge({ 1 => %w[er ēris ētur ēmur ēminī entur] })
+        active: {
+          1 => %w[em ēs et ēmus ētis ent],
+          2 => %w[eam eās eat eāmus eātis eant],
+          3 => %w[am ās at āmus ātis ant],
+          3.5 => %w[iam iās iat iāmus iātis iant],
+          4 => %w[iam iās iat iāmus iātis iant]
+        },
+        passive: {
+          1 => %w[er ēris ētur ēmur ēminī entur],
+          2 => %w[ear eāris eātur eāmur eāminī eantur],
+          3 => %w[ar āris ātur āmur āminī antur],
+          3.5 => %w[iar iāris iātur iāmur iāminī iantur],
+          4 => %w[iar iāris iātur iāmur iāminī iantur]
+        }
       },
       imperfect: {
         active: {
           1 => %w[ārem ārēs āret ārēmus ārētis ārent],
-          2 => %w[em ēs et ēmus ētis ent],
-          3 => %w[em ēs et ēmus ētis ent],
-          3.5 => %w[em ēs et ēmus ētis ent],
-          4 => %w[em ēs et ēmus ētis ent]
+          2 => %w[ērem ērēs ēret ērēmus ērētis ērent],
+          3 => %w[erem erēs eret erēmus erētis erent],
+          3.5 => %w[erem erēs eret erēmus erētis erent],
+          4 => %w[īrem īrēs īret īrēmus īrētis īrent]
         },
         passive: {
           1 => %w[ārer ārēris ārētur ārēmur ārēminī ārentur],
-          2 => %w[er ēris ētur ēmur ēminī entur],
-          3 => %w[er ēris ētur ēmur ēminī entur],
-          3.5 => %w[er ēris ētur ēmur ēminī entur],
-          4 => %w[er ēris ētur ēmur ēminī entur]
-        },
+          2 => %w[ērer ērēris ērētur ērēmur ērēminī ērentur],
+          3 => %w[erer erēris erētur erēmur erēminī erentur],
+          3.5 => %w[erer erēris erētur erēmur erēminī erentur],
+          4 => %w[īrer īrēris īrētur īrēmur īrēminī īrentur]
+        }
       },
       perfect: {
         active: Hash.new(%w[erim erīs erit erīmus erītis erint]),
