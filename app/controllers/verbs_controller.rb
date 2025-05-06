@@ -7,7 +7,6 @@ class VerbsController < ApplicationController
   end
 
   def show
-    puts params
     render :index if @verbs.empty?
 
     random_id = random_id(@verbs)
@@ -22,8 +21,6 @@ class VerbsController < ApplicationController
     verb_params = params.expect(verb: %i[present_active present_infinitive perfect_active supine])
     @verb = Verb.new(verb_params)
     if @verb.save
-      # @conjugation_list = conjugation_list
-      # render :new, status: :success
       @conjugation_matches = compare_conjugation_with_file(@verb)
       render :conjugation_table
     else

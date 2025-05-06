@@ -21,43 +21,58 @@
     ] %>
     <% color_idx = 0 %>
 
-  <table class="table table-bordered border-black table-striped">
-    <% @verb.conjugation_list.each_slice(6).each_with_index do |group, idx| %>
-      <% row_class = bootstrap_colors[color_idx % bootstrap_colors.size] %>
+  <%= form_with url: create_forms_path, method: :post, local: true do |f| %>
+    <input type='hidden' name='verb_id' value='<%= @verb.id %>'>
 
-      <% if labels[idx] %>
-        <% color_idx += 1 %>
+    <table class="table table-bordered border-black table-striped">
+      <% @verb.conjugation_list.each_slice(6).each_with_index do |group, idx| %>
         <% row_class = bootstrap_colors[color_idx % bootstrap_colors.size] %>
-        <tr class='<%= row_class %> border-black'>
-          <th rowspan='2'><%= labels[idx] %></th>
-          <th colspan='3'>Singular</th>
-          <th colspan='3'>Plural</th>
-        </tr>
-        <tr class='<%= row_class %> border-black'>
-          <% 6.times do |i| %>
-            <th><%= persons[i % 3].humanize %></th>
+
+        <% if labels[idx] %>
+          <% color_idx += 1 %>
+          <% row_class = bootstrap_colors[color_idx % bootstrap_colors.size] %>
+          <tr class='<%= row_class %> border-black'>
+            <th rowspan='2'><%= labels[idx] %></th>
+            <th colspan='3'>Singular</th>
+            <th colspan='3'>Plural</th>
+          </tr>
+          <tr class='<%= row_class %> border-black'>
+            <% 6.times do |i| %>
+              <th><%= persons[i % 3].humanize %></th>
+            <% end %>
+          </tr>
+        <% elsif line_break_indices.include?(idx) %>
+          <tr>
+            <td colspan='1' class='<%= row_class %> border-black'>&nbsp;</td>
+            <td colspan='6' class='border-black'>&nbsp;</td>
+          </tr>
+        <% end %>
+        <tr>
+          <th class='<%= row_class %> border-black'><%= group.first[:tense].humanize %></th>
+          <% group.each_with_index do |form, local_idx| %>
+            <% global_idx = idx * 6 + local_idx %>
+            <% match = @conjugation_matches[global_idx] %>
+            <% hidden_fields = {
+              person: form[:person],
+              number: form[:number],
+              tense: form[:tense],
+              voice: form[:voice],
+              mood: form[:mood]
+            } %>
+
+            <td class="<%= match.nil? ? '' : (match ? 'table-success' : 'table-warning') %>">
+              <%= text_field_tag "forms[#{global_idx}][text]", form[:text], class: "form-control form-control-sm" %>
+
+              <% hidden_fields.each do |key, value| %>
+                <%= hidden_field_tag "forms[#{global_idx}][#{key}]", value %>
+              <% end %>
+            </td>
           <% end %>
         </tr>
-      <% elsif line_break_indices.include?(idx) %>
-        <tr>
-          <td colspan='1' class='<%= row_class %> border-black'>&nbsp;</td>
-          <td colspan='6' class='border-black'>&nbsp;</td>
-        </tr>
       <% end %>
-      <tr>
-        <th class='<%= row_class %> border-black'><%= group.first[:tense].humanize %></th>
-        <% group.each_with_index do |form, local_idx| %>
-          <% global_idx = idx * 6 + local_idx %>
-          <% match = @conjugation_matches[global_idx] %>
-          <td class="<%= match.nil? ? '' : (match ? 'table-success' : 'table-warning') %>">
-            <%= form[:text] %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
-
-  <div class="m-5">
-    <%= link_to 'All Forms corrected', new_verb_path, class: 'btn btn-primary' %>
-  </div>
+    </table>
+    <div class="mt-3">
+      <%= submit_tag 'All Forms corrected', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
