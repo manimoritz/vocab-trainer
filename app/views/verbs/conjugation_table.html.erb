@@ -16,8 +16,6 @@
     <% bootstrap_colors = %w[
       table-secondary
       table-primary
-      table-success
-      table-warning
       table-info
       table-danger
     ] %>
@@ -48,10 +46,18 @@
       <% end %>
       <tr>
         <th class='<%= row_class %> border-black'><%= group.first[:tense].humanize %></th>
-        <% group.each do |form| %>
-          <td><%= form[:text] %></td>
+        <% group.each_with_index do |form, local_idx| %>
+          <% global_idx = idx * 6 + local_idx %>
+          <% match = @conjugation_matches[global_idx] %>
+          <td class="<%= match.nil? ? '' : (match ? 'table-success' : 'table-warning') %>">
+            <%= form[:text] %>
+          </td>
         <% end %>
       </tr>
     <% end %>
   </table>
+
+  <div class="m-5">
+    <%= link_to 'All Forms corrected', new_verb_path, class: 'btn btn-primary' %>
+  </div>
 </div>

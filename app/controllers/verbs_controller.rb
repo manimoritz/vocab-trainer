@@ -24,7 +24,7 @@ class VerbsController < ApplicationController
     if @verb.save
       # @conjugation_list = conjugation_list
       # render :new, status: :success
-
+      @conjugation_matches = compare_conjugation_with_file(@verb)
       render :conjugation_table
     else
       render :new, locals: { success: true }, status: :unprocessable_entity
@@ -59,5 +59,21 @@ class VerbsController < ApplicationController
   # @return [Integer] A number that is at least 1 and at most the number of elements in the Model.
   def random_id(model)
     rand(model.count).to_i + 1
+  end
+
+  def compare_conjugation_with_file(verb)
+    file_path = Rails.root.join('conjugations', "#{verb.present_active[..-2]}o.txt")
+    system("rake latin:fetch VERB=#{verb.present_active[..-2]}o") unless File.exist?(file_path)
+
+    file_data = eval(File.read(file_path))
+    memory_data = verb.conjugation_list.map { |f| f[:text] }
+
+    comparison = {}
+
+    memory_data.each_with_index do |val, idx|
+      comparison[idx] = val == file_data.flatten[idx]
+    end
+
+    comparison
   end
 end
