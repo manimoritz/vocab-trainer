@@ -1,0 +1,57 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="mt-5 mb-3 text-center">
+    <h2>Irregular Form found</h2>
+  </div>
+
+  <h3><%= @verb.present_infinitive %></h3>
+
+    <% labels = {
+         0 => 'Active Indicative',
+         6 => 'Passive Indicative',
+         12 => 'Active Subjunctive',
+         16 => 'Passive Subjunctive'
+       } %>
+    <% line_break_indices = [13, 15, 17, 19] %>
+    <% persons = %w[first_person second_person third_person] %>
+    <% bootstrap_colors = %w[
+      table-secondary
+      table-primary
+      table-success
+      table-warning
+      table-info
+      table-danger
+    ] %>
+    <% color_idx = 0 %>
+
+  <table class="table table-bordered border-black table-striped">
+    <% @verb.conjugation_list.each_slice(6).each_with_index do |group, idx| %>
+      <% row_class = bootstrap_colors[color_idx % bootstrap_colors.size] %>
+
+      <% if labels[idx] %>
+        <% color_idx += 1 %>
+        <% row_class = bootstrap_colors[color_idx % bootstrap_colors.size] %>
+        <tr class='<%= row_class %> border-black'>
+          <th rowspan='2'><%= labels[idx] %></th>
+          <th colspan='3'>Singular</th>
+          <th colspan='3'>Plural</th>
+        </tr>
+        <tr class='<%= row_class %> border-black'>
+          <% 6.times do |i| %>
+            <th><%= persons[i % 3].humanize %></th>
+          <% end %>
+        </tr>
+      <% elsif line_break_indices.include?(idx) %>
+        <tr>
+          <td colspan='1' class='<%= row_class %> border-black'>&nbsp;</td>
+          <td colspan='6' class='border-black'>&nbsp;</td>
+        </tr>
+      <% end %>
+      <tr>
+        <th class='<%= row_class %> border-black'><%= group.first[:tense].humanize %></th>
+        <% group.each do |form| %>
+          <td><%= form[:text] %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,5 +1,5 @@
 class VerbsController < ApplicationController
-  before_action :set_verbs_to_learn, only: %i[ index show ]
+  before_action :set_verbs_to_learn, only: %i[index show]
 
   def index
     random_id = random_id(Verb)
@@ -8,9 +8,7 @@ class VerbsController < ApplicationController
 
   def show
     puts params
-    if @verbs.empty?
-      render "index"
-    end
+    render :index if @verbs.empty?
 
     random_id = random_id(@verbs)
     @verb = @verbs.find(random_id)
@@ -21,18 +19,20 @@ class VerbsController < ApplicationController
   end
 
   def create
-    verb_params = params.expect(verb: [ :present_active, :present_infinitive, :perfect_active, :supine ])
+    verb_params = params.expect(verb: %i[present_active present_infinitive perfect_active supine])
     @verb = Verb.new(verb_params)
     if @verb.save
       # @conjugation_list = conjugation_list
-      render :new, status: :success
+      # render :new, status: :success
+
+      render :conjugation_table
     else
       render :new, locals: { success: true }, status: :unprocessable_entity
     end
   end
 
   def check_conjugation
-    params.expect(:id, :input, conjugation: [ :person, :number, :tense, :voice, :mood ])
+    params.expect(:id, :input, conjugation: %i[person number tense voice mood])
 
     verb = Verb.find(params[:id])
     mood, number, person, tense, voice = params[:conjugation].values
@@ -42,9 +42,9 @@ class VerbsController < ApplicationController
     @verb = Verb.find(random_id)
 
     if params[:input] == @form.text
-      render "show", locals: { success: true }
+      render :show, locals: { success: true }
     else
-      render "show", locals: { error: true }
+      render :show, locals: { error: true }
     end
   end
 

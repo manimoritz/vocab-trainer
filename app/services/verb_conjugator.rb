@@ -8,7 +8,7 @@ class VerbConjugator
   end
 
   def forms
-    MOODS.product(TENSES, VOICES).flat_map do |mood, tense, voice|
+    MOODS.product(VOICES, TENSES).flat_map do |mood, voice, tense|
       endings = ENDINGS.dig(mood, tense, voice, @conjugation) || []
 
       endings.each_with_index.map do |ending, index|
