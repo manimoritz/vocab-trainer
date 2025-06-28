@@ -59,8 +59,10 @@ class VerbsController < ApplicationController
   end
 
   def compare_conjugation_with_file(verb)
-    file_path = Rails.root.join('conjugations', "#{verb.present_active[..-2]}o.txt")
-    system("rake latin:fetch VERB=#{verb.present_active[..-2]}o") unless File.exist?(file_path)
+    unicode_norm_str = ActiveSupport::Inflector.transliterate(verb.present_active)
+
+    file_path = Rails.root.join('conjugations', "#{unicode_norm_str}.txt")
+    system("rake latin:fetch VERB=#{unicode_norm_str}") unless File.exist?(file_path)
 
     file_data = eval(File.read(file_path))
     memory_data = verb.conjugation_list.map { |f| f[:text] }

@@ -61,7 +61,9 @@
             } %>
 
             <td class="<%= match.nil? ? '' : (match ? 'table-success' : 'table-warning') %>">
-              <%= text_field_tag "forms[#{global_idx}][text]", form[:text], class: "form-control form-control-sm" %>
+              <%= text_field_tag "forms[#{global_idx}][text]", form[:text],
+                class: "form-control form-control-sm",
+                style: "#{match.nil? ? '' : (match ? 'background-color: #d1e7dd;' : 'background-color: #fff3cd;')}" %>
 
               <% hidden_fields.each do |key, value| %>
                 <%= hidden_field_tag "forms[#{global_idx}][#{key}]", value %>

@@ -47,7 +47,7 @@ the forms must be manually revised and submitted, and only then is the verb upda
 
 * In the conjugation table:
  * Make a tooltip that displays the wiktionary form.
- * Fully color the individual cells (right now the input field is white)
+ * ~Fully color the individual cells (right now the input field is white).~
 * When creating new verbs:
  * Only show the conjugation table when the conjugation_list function has discrepancies
  * Otherwise, directly bulk_create the forms
