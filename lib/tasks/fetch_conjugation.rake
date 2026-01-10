@@ -36,7 +36,7 @@ namespace :latin do
     supine_indices = [9, 10, 11, 18, 19]
 
     supine = extract_supine(table)
-    raise 'No supine case found.' if supine.empty?
+    raise 'No supine case found.' if supine && supine.empty?
 
     conjugation_data = extract_conjugation_rows(table, tenses)
 

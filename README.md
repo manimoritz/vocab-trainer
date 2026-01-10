@@ -45,24 +45,24 @@ the forms must be manually revised and submitted, and only then is the verb upda
 
 # Steps until Feature Complete
 
-* In the conjugation table:
- * Make a tooltip that displays the wiktionary form.
- * ~Fully color the individual cells (right now the input field is white).~
-* When creating new verbs:
-  * Only show the conjugation table when the conjugation_list function has discrepancies
-  * Otherwise, directly bulk_create the forms
-  * Only save the verb **if the bulk_create action has been executed and was successful**
-* Add "Display all Verbs" screen:
-  * Add update action that functions analogous to the create action.
-  * Add destroy action that destroys the verb and all its forms.
+- In the conjugation table:
+  - Make a tooltip that displays the wiktionary form.
+  - ~~Fully color the individual cells (right now the input field is white).~~
+- When creating new verbs:
+  - Only show the conjugation table when the conjugation_list function has discrepancies
+  - Otherwise, directly bulk_create the forms
+  - Only save the verb **if the bulk_create action has been executed and was successful**
+- Add "Display all Verbs" screen:
+  - Add update action that functions analogous to the create action.
+  - Add destroy action that destroys the verb and all its forms.
 
 # Possible Future Steps:
 
-* Add settings for:
-  * Choosing light / dark mode
-  * Limiting the possible forms to be displayed (eg. only ask Indicative, or only Present and Future)
-  * Limiting the verbs that get randomly chosen (eg. assign groups to verbs, and only study group 1)
-* Add other languages (eg. Italian, Spanish, Japanese?)
+- Add settings for:
+  - Choosing light / dark mode
+  - Limiting the possible forms to be displayed (eg. only ask Indicative, or only Present and Future)
+  - Limiting the verbs that get randomly chosen (eg. assign groups to verbs, and only study group 1)
+- Add other languages (eg. Italian, Spanish, Japanese?)
 
 # README
 
@@ -71,20 +71,20 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
 
-* System dependencies
+- System dependencies
 
-* Configuration
+- Configuration
 
-* Database creation
+- Database creation
 
-* Database initialization
+- Database initialization
 
-* How to run the test suite
+- How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+- Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+- Deployment instructions
 
-* ...
+- ...

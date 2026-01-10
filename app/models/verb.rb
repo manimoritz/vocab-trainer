@@ -24,7 +24,7 @@ class Verb < ApplicationRecord
     return 3 if present_infinitive[-3] == 'e'
     return 4 if present_infinitive[-3] == 'ī'
 
-    raise "'#{present_infinitive}' does not fit any conjugation rule."
+    'irregular'
   end
 
   def stem
